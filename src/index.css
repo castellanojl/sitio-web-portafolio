@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Mozilla+Text:wght@200..700&family=Sora:wght@600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Google Sans Flex", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Google Sans Flex", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Mozilla Text", ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand-bg: #050505;
+  --color-brand-ink: #ffffff;
+  --color-brand-mid: #9ea0a3;
+  --color-brand-light: #1f1f1f;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-ink font-body font-light antialiased;
+  }
+
+  h1, h2, h3, .font-display {
+    @apply font-display;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+}
+
+.fade-up.visible {
+  animation: fade-up 0.7s ease forwards;
+}
